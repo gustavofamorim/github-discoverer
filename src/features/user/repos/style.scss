@@ -2,14 +2,14 @@
 .repos {
   display: grid;
   grid-template-areas: 'repos-h' 'repos-item';
-  align-content: center;
-  justify-content: center;
 
   .repos-h {
+    width: 100%;
     grid-area: repos-h;
   }
 
   .repos-item {
+    width: 100%;
     grid-area: repos-item;
   }
 }

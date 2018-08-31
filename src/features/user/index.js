@@ -25,8 +25,8 @@ class User extends Component {
   render() {
     return (
       <div className="user-resume">
-        <Profile className="user-profile" user={this.state.profile}></Profile>
-        <Repos className="user-repos" repos={this.state.repos}></Repos>
+        <Profile user={this.state.profile}></Profile>
+        <Repos repos={this.state.repos}></Repos>
       </div>
     )
   }

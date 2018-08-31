@@ -9,9 +9,15 @@ const Repos = props => {
   return (
     <div className="repos">
       <h2 className="repos-h">Repositories</h2>
-      {props.repos.map(repo => (
-        <Repo className="repo-item" repo={repo} key={repo.id}></Repo>
-      ))}
+
+      {
+        props.repos.length > 0 ?
+          props.repos.map(repo => (
+            <Repo className="repo-item" repo={repo} key={repo.id}></Repo>
+          ))
+          :
+          <p>User has no repos. :(</p>
+      }
     </div>
   )
 }

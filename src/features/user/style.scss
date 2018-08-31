@@ -8,12 +8,22 @@
   justify-content: center;
 
   .user-profile {
-    margin: 10px 0px;
+    margin: 10px 10px;
     grid-area: user-profile;
   }
 
-  .user-repos {
-    margin: 10px 0px;
+  .repos {
+    margin: 10px 10px;
     grid-area: user-repos;
+  }
+
+  @media(min-width: 768px) {
+    .user-profile {
+      width: 60vw;
+    }
+
+    .repos {
+      width: 60vw;
+    }
   }
 }
