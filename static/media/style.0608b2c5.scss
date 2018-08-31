@@ -1,0 +1,29 @@
+
+.user-resume {
+  display: grid;
+  grid-template-areas:
+    'user-profile'
+    'user-repos';
+  align-content: center;
+  justify-content: center;
+
+  .user-profile {
+    margin: 10px 10px;
+    grid-area: user-profile;
+  }
+
+  .repos {
+    margin: 10px 10px;
+    grid-area: user-repos;
+  }
+
+  @media(min-width: 768px) {
+    .user-profile {
+      width: 60vw;
+    }
+
+    .repos {
+      width: 60vw;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+
+.repos {
+  display: grid;
+  grid-template-areas: 'repos-h' 'repos-item';
+
+  .repos-h {
+    width: 100%;
+    grid-area: repos-h;
+  }
+
+  .repos-item {
+    width: 100%;
+    grid-area: repos-item;
+  }
+}
