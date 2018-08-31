@@ -1,26 +1,47 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+
+import { FontAwesomeIcon as Fa} from '@fortawesome/react-fontawesome'
 
 import UserResume from './features/user'
-
-import api from './features/user/api'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      profile: {},
-      repos: []
+      username: '',
+      redirectTo: ''
     }
+
+    this.submitHandler = this.submitHandler.bind(this)
+    this.usernameHandler = this.usernameHandler.bind(this)
   }
 
-  componentDidMount() {
-    api.fetchRepos('gustavofamorim').then( res => this.setState({ repos: res.data }))
-    api.fetchProfile('gustavofamorim').then( res => this.setState({ profile: res.data }))
+  usernameHandler(ev) {
+    this.setState({ username: ev.target.value })
+  }
+
+  submitHandler(ev) {
+    ev.preventDefault()
+    this.setState({ redirectTo: `/${this.state.username}` })
   }
 
   render() {
     return (
-      <UserResume repos={this.state.repos} profile={this.state.profile}></UserResume>
+      <Router>
+        <div>
+          { this.state.redirectTo && (
+              <Redirect to={this.state.redirectTo}/>
+          ) }
+          <Route path="/" exact render={ () => (
+              <form className="user-discoverer-form" onSubmit={ this.submitHandler }>
+                <input className="user-name-input" onChange={ this.usernameHandler } type="search" placeholder="Username"></input>
+                <button className="user-submit" type="submit"><Fa icon="search"/></button>
+              </form>
+            )}/>
+          <Route path="/:username" component={UserResume}/>
+        </div>
+      </Router>
     )
   }
 }
