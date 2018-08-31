@@ -1,0 +1,37 @@
+
+.repo {
+  display: grid;
+  margin: 10px 0px;
+  grid-template-areas:
+    'repo-name'
+    'repo-description'
+    'repo-info'
+    'repo-stats';
+  grid-column-gap: 10px;
+
+  .repo-name {
+    grid-area: repo-name;
+  }
+
+  .repo-description {
+    grid-area: repo-description;
+  }
+
+  .repo-info {
+    grid-area: repo-info;
+
+    .repo-info-item {
+      margin: 2px;
+      display: inline-block;
+    }
+  }
+
+  .repo-stats {
+    grid-area: repo-stats;
+
+    .repo-stats-item {
+      margin: 2px;
+      display: inline-block;
+    }
+  }
+}
